@@ -500,16 +500,6 @@ public class Minecraft implements IThreadListener, IPlayerUsage
             this.toggleFullscreen();
         }
 
-        try
-        {
-            Display.setVSyncEnabled(this.gameSettings.enableVsync);
-        }
-        catch (OpenGLException var2)
-        {
-            this.gameSettings.enableVsync = false;
-            this.gameSettings.saveOptions();
-        }
-
         this.renderGlobal.makeEntityOutlineShader();
     }
 
@@ -557,7 +547,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
     {
         if (this.fullscreen)
         {
-            Display.setFullscreen(true);
+            //Display.setFullscreen(true);
             DisplayMode displaymode = Display.getDisplayMode();
             this.displayWidth = Math.max(1, displaymode.getWidth());
             this.displayHeight = Math.max(1, displaymode.getHeight());
@@ -1466,6 +1456,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
 
     public void toggleFullscreen()
     {
+        System.gc();
         try
         {
             this.fullscreen = !this.fullscreen;
@@ -1477,15 +1468,6 @@ public class Minecraft implements IThreadListener, IPlayerUsage
                 this.displayWidth = Display.getDisplayMode().getWidth();
                 this.displayHeight = Display.getDisplayMode().getHeight();
 
-                if (this.displayWidth <= 0)
-                {
-                    this.displayWidth = 1;
-                }
-
-                if (this.displayHeight <= 0)
-                {
-                    this.displayHeight = 1;
-                }
             }
             else
             {
@@ -1493,15 +1475,14 @@ public class Minecraft implements IThreadListener, IPlayerUsage
                 this.displayWidth = this.tempDisplayWidth;
                 this.displayHeight = this.tempDisplayHeight;
 
-                if (this.displayWidth <= 0)
-                {
-                    this.displayWidth = 1;
-                }
-
-                if (this.displayHeight <= 0)
-                {
-                    this.displayHeight = 1;
-                }
+            }
+            if (this.displayWidth <= 0)
+            {
+                this.displayWidth = 1;
+            }
+            if (this.displayHeight <= 0)
+            {
+                this.displayHeight = 1;
             }
 
             if (this.currentScreen != null)
@@ -1521,6 +1502,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
         {
             logger.error((String)"Couldn\'t toggle fullscreen", (Throwable)exception);
         }
+        System.gc();
     }
 
     private void resize(int width, int height)
@@ -1557,27 +1539,32 @@ public class Minecraft implements IThreadListener, IPlayerUsage
     private void fix(boolean fullscreen) {
         try {
             if (fullscreen) {
+                System.gc();
                 System.setProperty("org.lwjgl.opengl.Window.undecorated", "true");
                 Display.setDisplayMode(Display.getDesktopDisplayMode());
                 Display.setLocation(0, 0);
                 Display.setFullscreen(false);
                 Display.setResizable(false);
             } else {
+                System.gc();
                 System.setProperty("org.lwjgl.opengl.Window.undecorated", "false");
                 Display.setDisplayMode(new DisplayMode(displayWidth, displayHeight));
                 Display.setResizable(true);
             }
+            didFSTask = false;
         } catch (LWJGLException e) {
             e.printStackTrace();
         }
     }
     public static boolean lastFullScreen = false;
+    public static boolean didFSTask = false;
     public void runTick() throws IOException
     {
-        if (Minecraft.lastFullScreen != fullscreen) {
-            fix(fullscreen);
-            lastFullScreen = fullscreen;
-        }
+//        if (Minecraft.lastFullScreen != fullscreen && !didFSTask) {
+//            fix(fullscreen);
+//            lastFullScreen = fullscreen;
+//            didFSTask = true;
+//        }
         if (this.rightClickDelayTimer > 0)
         {
             --this.rightClickDelayTimer;
