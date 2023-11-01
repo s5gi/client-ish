@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="client-ish.jar">
+    <output-path>$PROJECT_DIR$/../../export/jar</output-path>
+    <root id="archive" name="client-ish.jar">
+      <element id="module-output" name="Client" />
+    </root>
+  </artifact>
+</component>

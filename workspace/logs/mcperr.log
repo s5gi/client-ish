@@ -1,0 +1,55 @@
+20:36:36 - !! Modified jar detected. Unpredictable results !!
+20:37:28 - 'runtime\bin\applydiff.exe -p1 -u -i ..\..\temp\temp.patch -d src\minecraft' failed : 1
+20:37:28 - 
+20:37:28 - == ERRORS FOUND ==
+20:37:28 - 
+20:37:28 - 1 out of 1 hunk FAILED -- saving rejects to file 'net\minecraft\util\Cartesian.jav#'
+20:37:28 - ==================
+20:37:28 - 
+20:38:07 - !! Missing server jar file. Aborting !!
+20:38:16 - '"scalac.bat" -encoding UTF-8 -deprecation -target:jvm-1.6 -classpath "jars\versions\1.8.9\1.8.9.jar;lib;lib\*;jars\libraries\net\java\jinput\jinput\2.0.5\jinput-2.0.5.jar;jars\libraries\org\lwjgl\lwjgl\lwjgl-platform\2.9.4-nightly-20150209\lwjgl-platform-2.9.4-nightly-20150209-natives-windows.jar;jars\libraries\com\ibm\icu\icu4j-core-mojang\51.2\icu4j-core-mojang-51.2.jar;jars\libraries\tv\twitch\twitch-external-platform\4.5\twitch-external-platform-4.5-natives-windows-64.jar;jars\libraries\org\apache\httpcomponents\httpcore\4.3.2\httpcore-4.3.2.jar;jars\libraries\org\apache\logging\log4j\log4j-api\2.0-beta9\log4j-api-2.0-beta9.jar;jars\libraries\org\apache\commons\commons-lang3\3.3.2\commons-lang3-3.3.2.jar;jars\libraries\net\java\dev\jna\jna\3.4.0\jna-3.4.0.jar;jars\libraries\com\paulscode\libraryjavasound\20101123\libraryjavasound-20101123.jar;jars\libraries\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;jars\libraries\com\google\guava\guava\17.0\guava-17.0.jar;jars\libraries\oshi-project\oshi-core\1.1\oshi-core-1.1.jar;jars\libraries\org\apache\httpcomponents\httpclient\4.3.3\httpclient-4.3.3.jar;jars\libraries\org\apache\commons\commons-compress\1.8.1\commons-compress-1.8.1.jar;jars\libraries\net\java\dev\jna\platform\3.4.0\platform-3.4.0.jar;jars\libraries\com\paulscode\codecjorbis\20101023\codecjorbis-20101023.jar;jars\libraries\com\paulscode\soundsystem\20120107\soundsystem-20120107.jar;jars\libraries\com\paulscode\librarylwjglopenal\20100824\librarylwjglopenal-20100824.jar;jars\libraries\org\lwjgl\lwjgl\lwjgl_util\2.9.4-nightly-20150209\lwjgl_util-2.9.4-nightly-20150209.jar;jars\libraries\commons-codec\commons-codec\1.9\commons-codec-1.9.jar;jars\libraries\net\java\jutils\jutils\1.0.0\jutils-1.0.0.jar;jars\libraries\commons-logging\commons-logging\1.1.3\commons-logging-1.1.3.jar;jars\libraries\org\lwjgl\lwjgl\lwjgl\2.9.4-nightly-20150209\lwjgl-2.9.4-nightly-20150209.jar;jars\libraries\commons-io\commons-io\2.4\commons-io-2.4.jar;jars\libraries\com\mojang\realms\1.7.59\realms-1.7.59.jar;jars\libraries\com\mojang\authlib\1.5.21\authlib-1.5.21.jar;jars\libraries\com\google\code\gson\gson\2.2.4\gson-2.2.4.jar;jars\libraries\com\mojang\netty\1.8.8\netty-1.8.8.jar;jars\libraries\tv\twitch\twitch\6.5\twitch-6.5.jar;jars\libraries\com\paulscode\codecwav\20101023\codecwav-20101023.jar;jars\libraries\tv\twitch\twitch-platform\6.5\twitch-platform-6.5-natives-windows-64.jar;jars\libraries\net\java\jinput\jinput-platform\2.0.5\jinput-platform-2.0.5-natives-windows.jar;jars\libraries\org\apache\logging\log4j\log4j-core\2.0-beta9\log4j-core-2.0-beta9.jar;jars\libraries\io\netty\netty-all\4.0.23.Final\netty-all-4.0.23.Final.jar" -sourcepath src\minecraft -d bin\minecraft @temp\java_src_client.txt @temp\scala_src_client.txt' failed : 1
+20:38:16 - 
+20:38:16 - == ERRORS FOUND in SCALA CODE ==
+20:38:16 - 
+20:38:16 -  === Your scala version is out of date, update to at least 2.10.0 ===
+20:38:16 - bad option '-target:jvm-1.6' was ignored
+20:38:16 - [31m[31m-- [E057] Type Mismatch Error: src\minecraft\net\minecraft\block\BlockFlower.java:47:33 [0m[0m
+20:38:16 - [31m47 |[0m    public IProperty<BlockFlower.EnumFlowerType> getTypeProperty()
+20:38:16 - [31m[31m   |[0m                                 ^[0m
+20:38:16 - 
+20:38:16 - [31m   |[0mType argument net.minecraft.block.BlockFlower.EnumFlowerType does not conform to upper bound Comparable[net.minecraft.block.BlockFlower.EnumFlowerType]
+20:38:16 - [31m   |[0m
+20:38:16 - [31m   |[0m longer explanation available when compiling with `-explain`
+20:38:16 - [31m[31m-- [E057] Type Mismatch Error: src\minecraft\net\minecraft\block\BlockRail.java:28:35 [0m[0m
+20:38:16 - [31m28 |[0m    public IProperty<BlockRailBase.EnumRailDirection> getShapeProperty()
+20:38:16 - [31m[31m   |[0m                                   ^[0m
+20:38:16 - 
+20:38:16 - [31m   |[0mType argument net.minecraft.block.BlockRailBase.EnumRailDirection does not conform to upper bound Comparable[net.minecraft.block.BlockRailBase.EnumRailDirection]
+20:38:16 - [31m   |[0m
+20:38:16 - [31m   |[0m longer explanation available when compiling with `-explain`
+20:38:16 - [31m[31m-- [E057] Type Mismatch Error: src\minecraft\net\minecraft\block\BlockRailBase.java:173:44 [0m[0m
+20:38:16 - [31m173 |[0m    public [33mabstract[0m IProperty<BlockRailBase.EnumRailDirection> getShapeProperty();
+20:38:16 - [31m[31m    |[0m                                            ^[0m
+20:38:16 - 
+20:38:16 - [31m    |[0mType argument net.minecraft.block.BlockRailBase.EnumRailDirection does not conform to upper bound Comparable[net.minecraft.block.BlockRailBase.EnumRailDirection]
+20:38:16 - [31m    |[0m
+20:38:16 - [31m    |[0m longer explanation available when compiling with `-explain`
+20:38:16 - [31m[31m-- [E057] Type Mismatch Error: src\minecraft\net\minecraft\block\BlockRailDetector.java:125:35 [0m[0m
+20:38:16 - [31m125 |[0m    public IProperty<BlockRailBase.EnumRailDirection> getShapeProperty()
+20:38:16 - [31m[31m    |[0m                                   ^[0m
+20:38:16 - 
+20:38:16 - [31m    |[0mType argument net.minecraft.block.BlockRailBase.EnumRailDirection does not conform to upper bound Comparable[net.minecraft.block.BlockRailBase.EnumRailDirection]
+20:38:16 - [31m    |[0m
+20:38:16 - [31m    |[0m longer explanation available when compiling with `-explain`
+20:38:16 - [31m[31m-- [E057] Type Mismatch Error: src\minecraft\net\minecraft\block\BlockRailPowered.java:166:35 [0m[0m
+20:38:16 - [31m166 |[0m    public IProperty<BlockRailBase.EnumRailDirection> getShapeProperty()
+20:38:16 - [31m[31m    |[0m                                   ^[0m
+20:38:16 - 
+20:38:16 - [31m    |[0mType argument net.minecraft.block.BlockRailBase.EnumRailDirection does not conform to upper bound Comparable[net.minecraft.block.BlockRailBase.EnumRailDirection]
+20:38:16 - [31m    |[0m
+20:38:16 - [31m    |[0m longer explanation available when compiling with `-explain`
+20:38:16 - 1 warning found
+20:38:16 - 5 errors found
+20:38:16 - ================================
+20:38:16 - 
+20:38:16 - Initial client recompile failed, correct source then run updatemd5

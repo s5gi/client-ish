@@ -1,0 +1,33 @@
+bad option '-target:jvm-1.6' was ignored
+[31m[31m-- [E057] Type Mismatch Error: src\minecraft\net\minecraft\block\BlockFlower.java:47:33 [0m[0m
+[31m47 |[0m    public IProperty<BlockFlower.EnumFlowerType> getTypeProperty()
+[31m[31m   |[0m                                 ^[0m
+[31m   |[0mType argument net.minecraft.block.BlockFlower.EnumFlowerType does not conform to upper bound Comparable[net.minecraft.block.BlockFlower.EnumFlowerType]
+[31m   |[0m
+[31m   |[0m longer explanation available when compiling with `-explain`
+[31m[31m-- [E057] Type Mismatch Error: src\minecraft\net\minecraft\block\BlockRail.java:28:35 [0m[0m
+[31m28 |[0m    public IProperty<BlockRailBase.EnumRailDirection> getShapeProperty()
+[31m[31m   |[0m                                   ^[0m
+[31m   |[0mType argument net.minecraft.block.BlockRailBase.EnumRailDirection does not conform to upper bound Comparable[net.minecraft.block.BlockRailBase.EnumRailDirection]
+[31m   |[0m
+[31m   |[0m longer explanation available when compiling with `-explain`
+[31m[31m-- [E057] Type Mismatch Error: src\minecraft\net\minecraft\block\BlockRailBase.java:173:44 [0m[0m
+[31m173 |[0m    public [33mabstract[0m IProperty<BlockRailBase.EnumRailDirection> getShapeProperty();
+[31m[31m    |[0m                                            ^[0m
+[31m    |[0mType argument net.minecraft.block.BlockRailBase.EnumRailDirection does not conform to upper bound Comparable[net.minecraft.block.BlockRailBase.EnumRailDirection]
+[31m    |[0m
+[31m    |[0m longer explanation available when compiling with `-explain`
+[31m[31m-- [E057] Type Mismatch Error: src\minecraft\net\minecraft\block\BlockRailDetector.java:125:35 [0m[0m
+[31m125 |[0m    public IProperty<BlockRailBase.EnumRailDirection> getShapeProperty()
+[31m[31m    |[0m                                   ^[0m
+[31m    |[0mType argument net.minecraft.block.BlockRailBase.EnumRailDirection does not conform to upper bound Comparable[net.minecraft.block.BlockRailBase.EnumRailDirection]
+[31m    |[0m
+[31m    |[0m longer explanation available when compiling with `-explain`
+[31m[31m-- [E057] Type Mismatch Error: src\minecraft\net\minecraft\block\BlockRailPowered.java:166:35 [0m[0m
+[31m166 |[0m    public IProperty<BlockRailBase.EnumRailDirection> getShapeProperty()
+[31m[31m    |[0m                                   ^[0m
+[31m    |[0mType argument net.minecraft.block.BlockRailBase.EnumRailDirection does not conform to upper bound Comparable[net.minecraft.block.BlockRailBase.EnumRailDirection]
+[31m    |[0m
+[31m    |[0m longer explanation available when compiling with `-explain`
+1 warning found
+5 errors found
