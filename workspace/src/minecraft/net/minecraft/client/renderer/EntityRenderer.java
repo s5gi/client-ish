@@ -2324,6 +2324,8 @@ public class EntityRenderer implements IResourceManagerReloadListener
 
     private void setupFog(int startCoords, float partialTicks)
     {
+        net.s5gi.clientish.CustomMethodTrackerDebug();
+        if(startCoords != -1) return;
         this.fogStandard = false;
         Entity entity = this.mc.getRenderViewEntity();
         boolean flag = false;

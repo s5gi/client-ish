@@ -25,6 +25,16 @@ import net.minecraft.world.World;
 
 public class TileEntityHopper extends TileEntityLockable implements IHopper, ITickable
 {
+
+
+    //CUSTOMSTUFF
+    public IInventory topInventory = null;
+    public int topBlockUpdate = 1;
+    public boolean canPickupDrops = true;
+    public boolean isOnTransferCooldown = false;
+    //CUSTOMSTUFF
+
+
     private ItemStack[] inventory = new ItemStack[5];
     private String customName;
     private int transferCooldown = -1;
@@ -184,7 +194,34 @@ public class TileEntityHopper extends TileEntityLockable implements IHopper, ITi
         return true;
     }
 
-    public void update()
+    public void checkBlockOnTop() {
+        net.s5gi.clientish.CustomMethodTrackerDebug();
+        BlockPos topPos = new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ());
+        canPickupDrops = !worldObj.getBlockState(topPos).getBlock().isOpaqueCube();
+        topInventory = getHopperInventory(this);
+    }
+
+    @Override
+    public void update() {
+        net.s5gi.clientish.CustomMethodTrackerDebug();
+        if(this.worldObj != null && !this.worldObj.isRemote) {
+            --transferCooldown;
+            isOnTransferCooldown = transferCooldown > 0;
+
+            if(!this.isOnTransferCooldown()) {
+                this.setTransferCooldown(2); // Let the server breathe
+                this.updateHopper();
+
+                if(topBlockUpdate-- <= 0) {
+                    checkBlockOnTop();
+                    topBlockUpdate = 120;
+                }
+            }
+        }
+    }
+
+    //OLD METHOD
+    /*public void update()
     {
         if (this.worldObj != null && !this.worldObj.isRemote)
         {
@@ -196,7 +233,7 @@ public class TileEntityHopper extends TileEntityLockable implements IHopper, ITi
                 this.updateHopper();
             }
         }
-    }
+    }*/
 
     public boolean updateHopper()
     {
@@ -364,9 +401,48 @@ public class TileEntityHopper extends TileEntityLockable implements IHopper, ITi
         return true;
     }
 
-    public static boolean captureDroppedItems(IHopper p_145891_0_)
+    public static boolean captureDroppedItems(IHopper hopper) {
+        net.s5gi.clientish.CustomMethodTrackerDebug();
+        // This is to keep the same functionality in the Minecart with Hopper and other custom modded hoppers
+        TileEntityHopper hopperTE = hopper.getClass() == TileEntityHopper.class ? (TileEntityHopper)hopper : null;
+
+        IInventory iinventory = hopperTE == null ? getHopperInventory(hopper) : hopperTE.topInventory;
+
+        if(iinventory != null) {
+            EnumFacing enumfacing = EnumFacing.DOWN;
+
+            if(isInventoryEmpty(iinventory, enumfacing)) return false;
+
+            if(iinventory instanceof ISidedInventory) {
+                ISidedInventory isidedinventory = (ISidedInventory)iinventory;
+                int[] aint = isidedinventory.getSlotsForFace(enumfacing);
+
+                for(int i = 0; i < aint.length; ++i) {
+                    if(pullItemFromSlot(hopper, iinventory, aint[i], enumfacing)) return true;
+                }
+            } else {
+                int j = iinventory.getSizeInventory();
+
+                for(int k = 0; k < j; ++k) {
+                    if(pullItemFromSlot(hopper, iinventory, k, enumfacing)) return true;
+                }
+            }
+        } else if(hopperTE == null || hopperTE.canPickupDrops) {
+
+            for(EntityItem entityitem : func_181556_a(hopper.getWorld(), hopper.getXPos(), hopper.getYPos() + 1.0D, hopper.getZPos())) {
+                if(putDropInInventoryAllSlots(hopper, entityitem)) {
+                    return true;
+                }
+            }
+
+        }
+
+        return false;
+    }
+    //OLD METHOD
+    /*public static boolean captureDroppedItems(IHopper hopper)
     {
-        IInventory iinventory = getHopperInventory(p_145891_0_);
+        IInventory iinventory = getHopperInventory(hopper);
 
         if (iinventory != null)
         {
@@ -384,7 +460,7 @@ public class TileEntityHopper extends TileEntityLockable implements IHopper, ITi
 
                 for (int i = 0; i < aint.length; ++i)
                 {
-                    if (pullItemFromSlot(p_145891_0_, iinventory, aint[i], enumfacing))
+                    if (pullItemFromSlot(hopper, iinventory, aint[i], enumfacing))
                     {
                         return true;
                     }
@@ -396,7 +472,7 @@ public class TileEntityHopper extends TileEntityLockable implements IHopper, ITi
 
                 for (int k = 0; k < j; ++k)
                 {
-                    if (pullItemFromSlot(p_145891_0_, iinventory, k, enumfacing))
+                    if (pullItemFromSlot(hopper, iinventory, k, enumfacing))
                     {
                         return true;
                     }
@@ -405,9 +481,9 @@ public class TileEntityHopper extends TileEntityLockable implements IHopper, ITi
         }
         else
         {
-            for (EntityItem entityitem : func_181556_a(p_145891_0_.getWorld(), p_145891_0_.getXPos(), p_145891_0_.getYPos() + 1.0D, p_145891_0_.getZPos()))
+            for (EntityItem entityitem : func_181556_a(hopper.getWorld(), hopper.getXPos(), hopper.getYPos() + 1.0D, hopper.getZPos()))
             {
-                if (putDropInInventoryAllSlots(p_145891_0_, entityitem))
+                if (putDropInInventoryAllSlots(hopper, entityitem))
                 {
                     return true;
                 }
@@ -415,7 +491,7 @@ public class TileEntityHopper extends TileEntityLockable implements IHopper, ITi
         }
 
         return false;
-    }
+    }*/
 
     private static boolean pullItemFromSlot(IHopper hopper, IInventory inventoryIn, int index, EnumFacing direction)
     {
@@ -627,10 +703,17 @@ public class TileEntityHopper extends TileEntityLockable implements IHopper, ITi
         this.transferCooldown = ticks;
     }
 
-    public boolean isOnTransferCooldown()
-    {
-        return this.transferCooldown > 0;
+
+    public boolean isOnTransferCooldown() {
+        net.s5gi.clientish.CustomMethodTrackerDebug();
+        return isOnTransferCooldown;
     }
+
+    //OLD METHOD
+//    public boolean isOnTransferCooldown()
+//    {
+//        return this.transferCooldown > 0;
+//    }
 
     public boolean mayTransfer()
     {

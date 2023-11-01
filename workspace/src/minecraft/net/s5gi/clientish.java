@@ -15,4 +15,8 @@ public class clientish {
     public static void shutdown() {
 
     }
+
+    public static void CustomMethodTrackerDebug() {
+        //TRACKS CUSTOM METHODS FOR SEARCH UP INCASE OF FUTURE REMOVAL
+    }
 }

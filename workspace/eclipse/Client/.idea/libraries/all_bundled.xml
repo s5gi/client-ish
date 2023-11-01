@@ -1,0 +1,38 @@
+<component name="libraryTable">
+  <library name="all_bundled">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../jars/libraries/_all/authlib-1.5.21.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jars/libraries/_all/codecjorbis-20101023.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jars/libraries/_all/codecwav-20101023.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jars/libraries/_all/commons-codec-1.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jars/libraries/_all/commons-compress-1.8.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jars/libraries/_all/commons-io-2.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jars/libraries/_all/commons-lang3-3.3.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jars/libraries/_all/commons-logging-1.1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jars/libraries/_all/gson-2.2.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jars/libraries/_all/guava-17.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jars/libraries/_all/httpclient-4.3.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jars/libraries/_all/httpcore-4.3.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jars/libraries/_all/icu4j-core-mojang-51.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jars/libraries/_all/jinput-2.0.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jars/libraries/_all/jinput-platform-2.0.5-natives-windows.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jars/libraries/_all/jna-3.4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jars/libraries/_all/jopt-simple-4.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jars/libraries/_all/jutils-1.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jars/libraries/_all/libraryjavasound-20101123.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jars/libraries/_all/librarylwjglopenal-20100824.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jars/libraries/_all/log4j-api-2.0-beta9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jars/libraries/_all/log4j-core-2.0-beta9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jars/libraries/_all/lwjgl-2.9.4-nightly-20150209.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jars/libraries/_all/lwjgl-platform-2.9.4-nightly-20150209-natives-windows.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jars/libraries/_all/lwjgl_util-2.9.4-nightly-20150209.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jars/libraries/_all/netty-1.8.8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jars/libraries/_all/netty-all-4.0.23.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jars/libraries/_all/oshi-core-1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jars/libraries/_all/platform-3.4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jars/libraries/_all/soundsystem-20120107.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
